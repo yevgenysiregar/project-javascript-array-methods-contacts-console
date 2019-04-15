@@ -1,28 +1,16 @@
 const names = ["Sadio Mane", "Bobby Firmino", "Mo Salah"];
 
-const showNames = function(name) {
-  for (let index = 0; index < name.length; index++) {
-    const peopleName = name[index];
-    console.log(`[${index + 1}] ${peopleName}`);
-  }
-};
-showNames(names);
+names.map(function(name, index) {
+  console.log(`${index + 1}. ${name}`);
+});
 
 const lfcPlayer = ["Sadio Mane", "Bobby Firmino", "Mo Salah"];
 
-const filterNames = function(player, minimumLength) {
-  let newNames = [];
-  for (let index = 0; index < player.length; index++) {
-    const striker = player[index];
-
-    if (striker.length >= minimumLength) {
-      newNames.push(striker);
-    }
-  }
-  return newNames;
-};
-const filteredNames = filterNames(lfcPlayer, 10);
-console.log(filteredNames);
+console.log(
+  lfcPlayer.filter(function(player) {
+    return player.length > 9;
+  })
+);
 
 const myContacts = [
   {
@@ -44,27 +32,17 @@ const myContacts = [
     email: "mo@salah.com"
   }
 ];
-const showContacts = function(myContacts) {
-  for (let index = 0; index < myContacts.length; index++) {
-    const contacts = myContacts[index];
-    console.log(
-      `[${contacts.id}], ${contacts.name}, (${contacts.phone}), <${
-        contacts.email
-      }>`
-    );
-  }
-};
-showContacts(myContacts);
+myContacts.map(function(showContact) {
+  const contactData = showContact;
+  console.log(
+    `[${contactData.id}], ${contactData.name}, (${contactData.phone}), <${
+      contactData.email
+    }>`
+  );
+});
 
-const filterContacts = function(myContact, minimumNameLength) {
-  let newContacts = [];
-  for (let index = 0; index < myContact.length; index++) {
-    const contact = myContact[index];
-    if (contact.name.length >= minimumNameLength) {
-      newContacts.push(contact);
-    }
-  }
-  return newContacts;
-};
-const filteredContacts = filterContacts(myContacts, 10);
-console.log(filteredContacts);
+const contact = myContacts.filter(function(contacts) {
+  return contacts.id < 3;
+});
+
+console.log(contact);
